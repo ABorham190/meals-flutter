@@ -2,18 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:meals/models/Category.dart';
 
 class CategoryGridItem extends StatelessWidget {
-  const CategoryGridItem({
-    super.key,
-    required this.category,
-  });
-
+  const CategoryGridItem(
+      {super.key, required this.category, required this.onSelectCategory});
+  final Function() onSelectCategory;
   final Category category;
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        print(category.title + " is tabed");
-      },
+      onTap: onSelectCategory,
       splashColor: Theme.of(context).primaryColor,
       borderRadius: BorderRadius.circular(10),
       child: Container(
