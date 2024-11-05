@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meals/models/meal.dart';
+import 'package:meals/widgets/meal_item_trait.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class MealItem extends StatelessWidget {
@@ -9,6 +10,16 @@ class MealItem extends StatelessWidget {
   });
 
   final Meal meal;
+
+  String get getAffordability {
+    return meal.affordability.name[0].toUpperCase() +
+        meal.affordability.name.substring(1);
+  }
+
+  String get getComplexity {
+    return meal.complexity.name[0].toUpperCase() +
+        meal.complexity.name.substring(1);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,8 +65,22 @@ class MealItem extends StatelessWidget {
                     const SizedBox(
                       height: 20,
                     ),
-                    const Row(
-                      children: [],
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        MealItemTrait(
+                            label: ' ${meal.duration} min',
+                            icon: Icons.schedule),
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        MealItemTrait(
+                            label: getAffordability, icon: Icons.attach_money),
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        MealItemTrait(label: getComplexity, icon: Icons.work),
+                      ],
                     )
                   ],
                 ),
