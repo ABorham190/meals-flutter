@@ -51,7 +51,7 @@ class MealItem extends StatelessWidget {
               bottom: 0,
               child: Container(
                 padding:
-                    const EdgeInsets.symmetric(vertical: 6, horizontal: 44),
+                    const EdgeInsets.symmetric(vertical: 6, horizontal: 40),
                 color: Colors.black54,
                 child: Column(
                   children: [
@@ -76,12 +76,12 @@ class MealItem extends StatelessWidget {
                             label: ' ${meal.duration} min',
                             icon: Icons.schedule),
                         const SizedBox(
-                          width: 20,
+                          width: 15,
                         ),
                         MealItemTrait(
                             label: getAffordability, icon: Icons.attach_money),
                         const SizedBox(
-                          width: 20,
+                          width: 15,
                         ),
                         MealItemTrait(label: getComplexity, icon: Icons.work),
                       ],
