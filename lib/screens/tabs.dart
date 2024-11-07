@@ -46,6 +46,12 @@ class _TabsScreen extends State<TabsScreen> {
     });
   }
 
+  void _setScreen(String identifier) {
+    if (identifier == 'meals') {
+      Navigator.pop(context);
+    } else {}
+  }
+
   @override
   Widget build(BuildContext context) {
     Widget activeScreen = CategoryScreen(
@@ -63,7 +69,9 @@ class _TabsScreen extends State<TabsScreen> {
       appBar: AppBar(
         title: Text(activePageTitle),
       ),
-      drawer: const MainDrawer(),
+      drawer: MainDrawer(
+        onSelectScreen: _setScreen,
+      ),
       body: activeScreen,
       bottomNavigationBar: BottomNavigationBar(
         items: const [
