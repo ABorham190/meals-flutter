@@ -6,11 +6,11 @@ import 'package:meals/widgets/meal_item.dart';
 class MealsScreen extends StatelessWidget {
   const MealsScreen({
     super.key,
-    required this.text,
+    this.text,
     required this.meals,
   });
 
-  final String text;
+  final String? text;
   final List<Meal> meals;
 
   void selectMeal(BuildContext context, Meal meal) {
@@ -38,6 +38,7 @@ class MealsScreen extends StatelessWidget {
                 .textTheme
                 .headlineLarge!
                 .copyWith(color: Theme.of(context).colorScheme.onSurface),
+            textAlign: TextAlign.center,
           ),
           const SizedBox(
             height: 20,
@@ -52,9 +53,12 @@ class MealsScreen extends StatelessWidget {
         ]),
       );
     }
+    if (text == null) {
+      return content;
+    }
     return Scaffold(
       appBar: AppBar(
-        title: Text(text),
+        title: Text(text!),
       ),
       body: content,
     );
